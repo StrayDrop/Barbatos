@@ -1,0 +1,47 @@
+
+// Barbatos Format
+{
+    /// *** COMPILE OPTIONS *** ///
+    "compilerOptions": {
+      // Target latest version of ECMASCript.
+      "target": "esnext",
+      // Search under node_modules for non-relative imports.
+      "moduleResolution": "node",
+      // Process & infer types from .js files. (※ infer types : 型推測の意)
+      "allowJs": true,
+      
+      // TODO: EMITってなに？？？
+      // Don't emit; allow Babel to transform files.
+      "noEmit": true,
+      // Enable strictest settings klike strictNullChecks & noImplicitAny. (※ ImplicitAny : 暗黙のAnyの意) 
+      // NOTE: strictについて 
+      // エラーチェックの厳密化(strict)の意。これをtrueにするとNULLや非明示ANY(: any付け)をしないとエラーになる。
+      // 厳しすぎるのでfalseを推奨。
+      "strict": false,
+      // NOTE: HEURISTIC: strictをfalseにしても、非明示ANY(: any付け)がエラーになる場合はオンにする。
+      //"noImplicitAny": false,
+      // Disallow features that require cross-file information for emit.
+      "isolatedModules": true,
+      // Import non-ES modules as default impports.
+      "esModuleInterop": true,
+      
+      // Other Settings From Create-React-App --typescript
+      
+      //"lib": [
+      //  "dom",
+      //  "dom.iterable",
+      //  "esnext"
+      //],
+      
+      //"skipLibCheck": true,
+      //"allowSyntheticDefaultImports": true,
+      //"forceConsistentCasingInFileNames": true,
+      //"module": "esnext",
+      //"resolveJsonModule": true,
+      //"jsx": "preserve",
+    },
+    /// *** INCLUDES *** ///
+    "include": [
+      "src"
+    ]
+  }
