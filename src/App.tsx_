@@ -49,9 +49,9 @@ class Test extends React.Component {
 
   _xValue = 5
 
-  #age = 18
+  _age = 18
 
-  static _x
+  
   
   //#increaseAge() {
   //  this.#age++
@@ -82,13 +82,25 @@ class Test extends React.Component {
 const App = ( /* props */ ) => {
 
   
+  type Action = {
+    command: 'increment' | 'decrement'
+  }
+  type State = {
+     x: number 
+  }
+  type Dispatch = (arg1:Action) => void
+
+  type Variant = {
+    type: "text" | "outlined" | "flat" | "contained" | "raised" | "fab" | "extendedFab"
+  }
+  
   //REDUCER
-  const reducer = ({x}, action) => {
-    switch(action) {
+  const reducer = (state:State, action:Action) => {
+    switch(action.command) {
       case 'increment' : 
-        return ({ x: x + 1 })
+        return ({ x : state.x + 1 })
       case 'decrement' : 
-        return ({ x: x - 1 })
+        return ({ x : state.x - 1 })
 
     }
 
@@ -113,24 +125,26 @@ const App = ( /* props */ ) => {
     //props resolution
     //const { children, className, ...others } = props
 
-    const _dispatch = useContext(AppContext)
+    const _dispatch:Dispatch = useContext(AppContext)
     
     const _hashtags = ["#love","#instagood","#photooftheday","#fashion","#beautiful","#happy","#cute","#tbt","#like4like","#followme","#picoftheday","#follow","#me","#selfie","#summer","#art","#instadaily","#friends","#repost","#nature","#girl","#fun","#style","#smile","#food"]
     const _animals = ["爆","🐯","🐹","🦊","🐵","🐸","🐦","🐺","🦎","🦋","🐡","🐟","🐬","🐳","🐋","🦈","🐪","🦏","🐘","🦍","🦓","🐆","🐅","🐊","🦒","🐃","🐂","🐎","🐖","🐏","🐑","🐐","🐔","🐧","🔥","🍄"]
-    const _actions = ["increment","decrement"]
+    const _actions = [{command:"increment"} as Action ,{command:"decrement"} as Action]
 
     let _rand=0
     
     _rand = floor( random()*_actions.length )
     console.log("MEMO : "+_rand)
     
-    const _action = _actions[_rand]
+    const _action:Action = _actions[_rand]
 
     console.log("ACT : "+_action)
 
+    const _variant:Variant = {type:"outlined"}
+
     const _attributes = {
       onClick : ()=>{ _dispatch(_action) },
-      variant : "outlined", 
+      variant : _variant, 
       style : { margin:10, backgroundColor:"rgba(0,0,0,0.02)", color:"rgb(176, 190, 197)", fontSize:15 },
     }
 

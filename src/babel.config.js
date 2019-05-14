@@ -19,8 +19,9 @@
 
 const configs = [{ 
 	"presets":[
-		"@babel/typescript",
-		"@babel/preset-stage-1"
+		"@babel/preset-stage-1",
+		"@babel/preset-stage-2",
+		"@babel/preset-stage-3"
 	],
 	"plugins":[
 		"@babel/proposal-class-properties",

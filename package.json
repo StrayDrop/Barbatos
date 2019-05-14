@@ -2,6 +2,7 @@
   "name": "barbatos",
   "version": "0.1.0",
   "private": true,
+  "MEMO": "MEMO: Webpackは4.29.6までしかreact-scriptsが対応していないので、これに合わせること！",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
@@ -28,8 +29,10 @@
     "////build": "nwb build-react-app",
     "now-build": "react-scripts build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "//eslintConfig": {
+    "MEMO:": "/* FIXME: なぜか react-scripts で tsファイルがないのにもかかわらず、TSプロジェクトだと判断されて react-app-env.d.ts が作られてしまう、、、 */",
+    "MEMO:2:": "/* FIXME: eslintrc.jsの方が先に後に読み込まれる？ eslintrcがあるからここでの設定は不要と思われるが本当にそうか？ 要検証 */",
+    "//extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -44,15 +47,19 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-do-expressions": "^7.2.0",
     "@babel/plugin-proposal-private-methods": "^7.4.4",
     "@babel/preset-stage-1": "^7.0.0",
     "@babel/preset-stage-2": "^7.0.0",
+    "@babel/preset-stage-3": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "babel-plugin-emotion": "^10.0.9",
     "babel-plugin-macros": "^2.5.1",
+    "core-js": "^3.0.1",
     "emotion": "^10.0.9",
+    "eslint": "^5.16.0",
     "husky": "^2.2.0",
-    "nwb": "^0.23.0",
     "tersus-jsx.macro": "^0.1.2",
     "typescript": "^3.4.5"
   },
