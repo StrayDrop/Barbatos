@@ -48,10 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
-    "@babel/plugin-proposal-do-expressions": "^7.2.0",
     "@babel/plugin-proposal-private-methods": "^7.4.4",
-    "@babel/preset-stage-1": "^7.0.0",
-    "@babel/preset-stage-2": "^7.0.0",
     "@babel/preset-stage-3": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "babel-plugin-emotion": "^10.0.9",

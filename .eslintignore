@@ -1,2 +1,2 @@
-src/*
-
+# eslint MEMO: FIXME: ignoreを書いているのに完全にこのファイルがbabel-eslintだと無視されてる気がする
+# src/

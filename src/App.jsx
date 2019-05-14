@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button'
 //CSS
 //import logo from './logo.svg'
 import './App.css'
-import { render } from 'react-dom';
+//import { render } from 'react-dom';
 
 //ABBREVIATION of Standard built-in Objects (省略語の登録)
 //MEMO: 標準ライブラリ Math を省略
@@ -37,8 +37,6 @@ const styleRoot = {
 //CONTEXT
 const AppContext = createContext(()=>{})
 
-const age = "TEEEEEEEEEEEST"
-
 //TEST PRIVATE FIELD
 class Test extends React.Component {
   
@@ -46,12 +44,10 @@ class Test extends React.Component {
   static firstAge
 
   num = 1
+  _xValue = 3
+  _age = 18
 
-  _xValue = 5
-
-  #age = 18
-
-  static _x
+  //static _x
   
   //#increaseAge() {
   //  this.#age++
@@ -66,7 +62,7 @@ class Test extends React.Component {
   //   alert("Happy Birthday!")
   // }
   
-
+  // _xの宣言は自動でされるので不要
   get _x() { return this._xValue }
   set _x(value) { this._xValue = value }
 
