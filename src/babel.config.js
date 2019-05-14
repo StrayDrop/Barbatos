@@ -1,6 +1,5 @@
 //babel.config.js
 
-
 //Official Document Format
 //module.exports = function (api) {
 //	api.cache(true);
@@ -20,15 +19,9 @@
 
 const configs = [{ 
 	"presets":[
-		"@babel/typescript",
-		"@babel/preset-stage-1"
+		//MEMO: FIXME: "@babel/preset-typescript" //typescriptが必要になったら入れる(入れなくてもtsファイルを見つけたら自動で入るかもしれない、というか入ってる？要検証)
 	],
 	"plugins":[
-		"@babel/proposal-class-properties",
-		"@babel/proposal-object-rest-spread",
-		"@babel/plugin-proposal-private-methods",
-		"@babel/plugin-proposal-decorators",
-		"@babel/plugin-proposal-do-expressions",
 		"emotion"
 	]
 }]

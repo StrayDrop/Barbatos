@@ -10,9 +10,9 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Button from '@material-ui/core/Button'
 
 //CSS
-import logo from './logo.svg'
+//import logo from './logo.svg'
 import './App.css'
-import { render } from 'react-dom';
+//import { render } from 'react-dom';
 
 //ABBREVIATION of Standard built-in Objects (省略語の登録)
 //MEMO: 標準ライブラリ Math を省略
@@ -37,39 +37,47 @@ const styleRoot = {
 //CONTEXT
 const AppContext = createContext(()=>{})
 
-const age = "TEEEEEEEEEEEST"
-
 //TEST PRIVATE FIELD
 class Test extends React.Component {
   
-  //const num = 1
+  //staticを使って書くことも可能(FIXME: staticの仕様は勉強中)
+  static firstAge
 
-  constructor(){
-    super()
-    this.xValue = "TEEEEST"
-    
-  }
-  /*
-  #increaseAge() {
-    this.#age++
-  }
+  //メンバ変数(パブリック)
+  num = 1
 
-  birthday() {
-    this.#increaseAge()
-    alert("Happy Birthday!")
-  }
-  */
+  //メンバ変数(プライベート)
+  #xValue = 5
 
-  //get #x() { return #xValue }
-  //set #x(value) { this.#xValue = value }
+  //メンバ変数(書き方的にプライベートに見せてるver) 
+  //MEMO: HEURISTIC: (実際に#{name}で書いてもトランスコンパイルで正確なプライベートにはJSは出来ないので、これを使うのも手)
+  _age = 18
+
+  //関数(プライベート)
+  //MEMO: Babelは対応してるがReactが対応しておらず、プライベート関数はつかえない
+  //#increaseAge() {
+  //  this.#age++
+  //}
+
+  //関数(パブリック)
+  increaseAge = () => {
+    this._age++
+  }
+  
+  //アクセサー(C#/C++てきな物)
+  //プライベートなメンバ変数を宣言中に使う事ができない (パブリックなメンバ変数は可能)
+  //アクセサーをつかう変数「_x」の宣言は自動でされる。明示的宣言はで不要
+
+  get _x() { return this._age }
+  set _x(value) { this._age = value }
+
+  //ここでレンダリングする ライフサイクルのどこで呼ばれるかわからないため、メンバの呼び出しにはthisが必要。
   render(){
-    
     return ( 
-     <p>{this.xValue}</p>
+     <p>{this._x}</p>
     )
   }
 }
-
 
 //COMPONENT
 const App = ( /* props */ ) => {
@@ -112,11 +120,10 @@ const App = ( /* props */ ) => {
     const _animals = ["爆","🐯","🐹","🦊","🐵","🐸","🐦","🐺","🦎","🦋","🐡","🐟","🐬","🐳","🐋","🦈","🐪","🦏","🐘","🦍","🦓","🐆","🐅","🐊","🦒","🐃","🐂","🐎","🐖","🐏","🐑","🐐","🐔","🐧","🔥","🍄"]
     const _actions = ["increment","decrement"]
 
-    let rand=0
-    const _rand = useMemo(
-      () => {  rand=floor( random()*_actions.length ); console.log("MEMO : "+rand); return rand },
-      rand
-    )
+    let _rand=0
+    
+    _rand = floor( random()*_actions.length )
+    console.log("MEMO : "+_rand)
     
     const _action = _actions[_rand]
 

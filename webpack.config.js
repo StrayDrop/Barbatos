@@ -1,8 +1,11 @@
+//Barbatos Format
+/*
 const configs = {
   module: {
   
     // configuration regarding modules
     rules: [{
+      
       loader: "babel-loader",
       options: {
         // this will disable any type checking
@@ -11,7 +14,31 @@ const configs = {
     }]
   }
 }
+
 module.exports = configs
+*/
+
+// MEMO: FIXME: TypeScriptをbabelで使う時はこっちを使うといいらしい(未検証)
+// saltyshiomix format
+// https://dev.to/saltyshiomix/why-babel-with-typescript-56l5
+module.exports = {
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
+  module: {
+    rules: [{
+      test: [/\.jsx?$/, /\.tsx?$/],
+      use: 'babel-loader',
+      exclude: /node_modules/,
+      options: {
+      // this will disable any type checking
+       transpileOnly: true,
+      }
+    }]
+  }
+}
+
+
 /* SAMPLE FROM https://webpack.js.org/configuration/ 
 const path = require('path');
 module.exports = {
