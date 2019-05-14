@@ -19,10 +19,9 @@
 
 const configs = [{ 
 	"presets":[
-		//MEMO: "@babel/preset-typescript" //typescriptが必要になったら入れる(入れなくてもtsファイルを見つけたら自動で入るかもしれない、というか入ってる？要検証)
+		//MEMO: FIXME: "@babel/preset-typescript" //typescriptが必要になったら入れる(入れなくてもtsファイルを見つけたら自動で入るかもしれない、というか入ってる？要検証)
 	],
 	"plugins":[
-		"@babel/proposal-class-properties",
 		"emotion"
 	]
 }]

@@ -40,34 +40,39 @@ const AppContext = createContext(()=>{})
 //TEST PRIVATE FIELD
 class Test extends React.Component {
   
-  
+  //staticを使って書くことも可能(FIXME: staticの仕様は勉強中)
   static firstAge
 
+  //メンバ変数(パブリック)
   num = 1
-  _xValue = 3
+
+  //メンバ変数(プライベート)
+  #xValue = 5
+
+  //メンバ変数(書き方的にプライベートに見せてるver) 
+  //MEMO: HEURISTIC: (実際に#{name}で書いてもトランスコンパイルで正確なプライベートにはJSは出来ないので、これを使うのも手)
   _age = 18
 
-  //static _x
-  
+  //関数(プライベート)
+  //MEMO: Babelは対応してるがReactが対応しておらず、プライベート関数はつかえない
   //#increaseAge() {
   //  this.#age++
   //}
 
-  increaseAge() {
+  //関数(パブリック)
+  increaseAge = () => {
     this._age++
   }
-
-  // birthday() {
-  //   this.#increaseAge()
-  //   alert("Happy Birthday!")
-  // }
   
-  // _xの宣言は自動でされるので不要
-  get _x() { return this._xValue }
-  set _x(value) { this._xValue = value }
+  //アクセサー(C#/C++てきな物)
+  //プライベートなメンバ変数を宣言中に使う事ができない (パブリックなメンバ変数は可能)
+  //アクセサーをつかう変数「_x」の宣言は自動でされる。明示的宣言はで不要
 
+  get _x() { return this._age }
+  set _x(value) { this._age = value }
+
+  //ここでレンダリングする ライフサイクルのどこで呼ばれるかわからないため、メンバの呼び出しにはthisが必要。
   render(){
-    
     return ( 
      <p>{this._x}</p>
     )

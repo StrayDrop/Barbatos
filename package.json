@@ -32,6 +32,7 @@
   "//eslintConfig": {
     "MEMO:": "/* FIXME: なぜか react-scripts で tsファイルがないのにもかかわらず、TSプロジェクトだと判断されて react-app-env.d.ts が作られてしまう、、、 */",
     "MEMO:2:": "/* FIXME: eslintrc.jsの方が先に後に読み込まれる？ eslintrcがあるからここでの設定は不要と思われるが本当にそうか？ 要検証 */",
+    "MEMO:3:": "/* FIXME: babelのプラグインってdevDependenciesに入れたらbabel.config.jsに書かなくても問答無用で使われてる可能性ある 要検証 */",
     "//extends": "react-app"
   },
   "browserslist": {
@@ -49,7 +50,6 @@
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-private-methods": "^7.4.4",
-    "@babel/preset-stage-3": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "babel-plugin-emotion": "^10.0.9",
     "babel-plugin-macros": "^2.5.1",
