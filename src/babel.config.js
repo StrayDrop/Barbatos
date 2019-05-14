@@ -1,6 +1,5 @@
 //babel.config.js
 
-
 //Official Document Format
 //module.exports = function (api) {
 //	api.cache(true);

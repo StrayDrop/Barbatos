@@ -10,7 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Button from '@material-ui/core/Button'
 
 //CSS
-import logo from './logo.svg'
+//import logo from './logo.svg'
 import './App.css'
 import { render } from 'react-dom';
 
