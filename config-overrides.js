@@ -4,8 +4,10 @@ module.exports = {
     paths: function (paths, env) {        
         paths.appIndexJs = path.resolve(__dirname, 'src/home/index.jsx');
         paths.appSrc = path.resolve(__dirname, 'src');
-        paths.appPublic = path.resolve(__dirname, 'fixtures/manifest');
-        paths.appHtml = path.resolve(__dirname, 'fixtures/manifest/index.html');
+//        paths.appPublic = path.resolve(__dirname, 'public');
+//        paths.appHtml = path.resolve(__dirname, 'public/index.html');
+//        paths.appPublic = path.resolve(__dirname, 'fixtures/manifest');
+//        paths.appHtml = path.resolve(__dirname, 'fixtures/manifest/index.html');
         return paths;
     },
 }
